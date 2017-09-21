@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  ClienteSchema.find((error, clientes) => {
+  const query = req.user._id;
+  ClienteSchema.find(query, (error, clientes) => {
     res.send(clientes, 200);
   });
 });
